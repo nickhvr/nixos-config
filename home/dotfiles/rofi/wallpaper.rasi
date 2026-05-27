@@ -6,18 +6,8 @@ configuration {
 
 * {
     font: "JetBrainsMono Nerd Font 10";
-
-    transparent: #00000000;
-
-    bg: @background;
-    fg: @foreground;
-    card: @color0;
-    accent: @color2;
-    accent2: @color6;
-    muted: @color7;
-
-    background-color: @transparent;
-    text-color: @fg;
+    background-color: transparent;
+    text-color: @foreground;
 }
 
 window {
@@ -25,38 +15,39 @@ window {
     height: 700px;
 
     border: 1px;
-    border-color: @accent;
+    border-color: @color2;
     border-radius: 28px;
 
-    background-color: @bg;
+    background-color: @background;
 }
 
 mainbox {
     padding: 22px;
     spacing: 18px;
-    background-color: @transparent;
+    background-color: transparent;
 }
 
 inputbar {
     padding: 13px 18px;
+
     border: 1px;
-    border-color: @accent;
+    border-color: @color2;
     border-radius: 18px;
 
-    background-color: @card;
+    background-color: @color0;
 
     children: [ prompt, entry ];
 }
 
 prompt {
-    text-color: @accent2;
+    text-color: @color6;
     padding: 0 12px 0 0;
 }
 
 entry {
-    text-color: @fg;
+    text-color: @foreground;
     placeholder: "Wallpaper suchen...";
-    placeholder-color: @muted;
+    placeholder-color: @color7;
 }
 
 listview {
@@ -69,7 +60,7 @@ listview {
     dynamic: false;
     scrollbar: false;
 
-    background-color: @transparent;
+    background-color: transparent;
 }
 
 element {
@@ -79,15 +70,15 @@ element {
     spacing: 10px;
 
     border: 2px;
-    border-color: @transparent;
+    border-color: transparent;
     border-radius: 22px;
 
-    background-color: @card;
+    background-color: transparent;
 }
 
 element selected {
-    border-color: @accent2;
-    background-color: @card;
+    border-color: @color6;
+    background-color: transparent;
 }
 
 element-icon {
@@ -97,9 +88,9 @@ element-icon {
 
 element-text {
     horizontal-align: 0.5;
-    text-color: @muted;
+    text-color: @color7;
 }
 
 element selected element-text {
-    text-color: @fg;
+    text-color: @foreground;
 }
