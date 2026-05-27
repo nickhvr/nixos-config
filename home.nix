@@ -2,6 +2,7 @@
 
 {
   imports = [
+    ./home/gtk.nix
     ./home/hypr-scripts.nix
     ./home/rofi.nix
     ./home/kitty.nix

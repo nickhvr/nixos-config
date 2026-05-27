@@ -1,3 +1,4 @@
+@import url("file:///home/nick/.cache/wal/wofi.css");
 * {
     font-family: "JetBrainsMono Nerd Font", "JetBrains Mono", "Font Awesome 6 Free", "Noto Sans", sans-serif;
     font-size: 14px;
@@ -41,7 +42,7 @@ window {
     margin: 4px 0;
     border-radius: 15px;
     background-color: transparent;
-    color: #d8e2d0;
+    color: @wal_fg;
 }
 
 #entry:hover {

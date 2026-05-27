@@ -54,18 +54,8 @@ monitors=$(hyprctl monitors | awk '/^Monitor / {print $2}')
 # Generate pywal colors
 wal -i "$wallpaper" -n -q
 
-# Generate valid Waybar GTK CSS colors
-source "$HOME/.cache/wal/colors.sh"
-
-cat > "$HOME/.cache/wal/waybar.css" <<EOF2
-@define-color wal_bg ${background};
-@define-color wal_fg ${foreground};
-@define-color wal_accent ${color2};
-@define-color wal_accent2 ${color6};
-@define-color wal_dark ${color0};
-@define-color wal_warning ${color3};
-@define-color wal_critical ${color1};
-EOF2
+# Apply generated pywal colors to desktop components
+"$HOME/.config/hypr/scripts/apply-wal-theme.sh"
 
 # Restart hyprpaper
 pkill hyprpaper >/dev/null 2>&1 || true
@@ -91,10 +81,5 @@ if [ -n "$monitors" ]; then
 else
     hyprctl hyprpaper wallpaper ",$wallpaper" >/dev/null 2>&1 || true
 fi
-
-# Restart Waybar
-pkill waybar >/dev/null 2>&1 || true
-sleep 0.2
-waybar > "$WAYBAR_LOG" 2>&1 &
 
 notify-send "Wallpaper gesetzt" "$chosen"
