@@ -35,13 +35,13 @@ hyprctl reload >/dev/null 2>&1 || true
 # -----------------------------
 cat > "$WAL_CACHE/firefox.css" <<EOF2
 :root {
-  --forest-bg: ${background} !important;
-  --forest-bg-soft: ${background}dd !important;
-  --forest-panel: ${color0} !important;
-  --forest-green: ${color2} !important;
-  --forest-green-soft: ${color6} !important;
-  --forest-border: ${color2}aa !important;
-  --forest-text: ${foreground} !important;
+  --wal-bg: ${background} !important;
+  --wal-fg: ${foreground} !important;
+  --wal-panel: ${color0} !important;
+  --wal-accent: ${color2} !important;
+  --wal-accent2: ${color6} !important;
+  --wal-critical: ${color1} !important;
+  --wal-warning: ${color3} !important;
 }
 EOF2
 
