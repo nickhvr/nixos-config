@@ -15,6 +15,87 @@ fi
 source "$WAL_CACHE/colors.sh"
 
 # -----------------------------
+# Hyprlock dynamic config
+# -----------------------------
+CURRENT_WALLPAPER="$WAL_CACHE/current-wallpaper"
+
+if [ ! -e "$CURRENT_WALLPAPER" ]; then
+    CURRENT_WALLPAPER="$HOME/wallpapers/wallpaper.png"
+fi
+
+accent="${color2#\#}"
+accent2="${color6#\#}"
+bg="${background#\#}"
+fg="${foreground#\#}"
+critical="${color1#\#}"
+
+cat > "$HOME/.config/hypr/hyprlock.conf" <<EOF2
+background {
+    monitor =
+    path = $CURRENT_WALLPAPER
+    blur_passes = 3
+    blur_size = 7
+    noise = 0.02
+    contrast = 0.95
+    brightness = 0.50
+    vibrancy = 0.16
+}
+
+general {
+    no_fade_in = false
+    grace = 0
+    disable_loading_bar = true
+    hide_cursor = true
+}
+
+input-field {
+    monitor =
+    size = 300, 54
+    outline_thickness = 2
+
+    dots_size = 0.22
+    dots_spacing = 0.28
+    dots_center = true
+
+    outer_color = rgba(${accent}ff)
+    inner_color = rgba(${bg}cc)
+    font_color = rgba(${fg}ff)
+
+    fade_on_empty = false
+    placeholder_text = <span foreground="##${accent2}">Password...</span>
+    fail_text = <span foreground="##${critical}">Wrong password</span>
+
+    rounding = 18
+
+    position = 0, -90
+    halign = center
+    valign = center
+}
+
+label {
+    monitor =
+    text = \$TIME
+    color = rgba(${fg}ff)
+    font_size = 68
+    font_family = JetBrains Mono
+    position = 0, 90
+    halign = center
+    valign = center
+}
+
+label {
+    monitor =
+    text = nick@nixos
+    color = rgba(${accent2}ff)
+    font_size = 18
+    font_family = JetBrains Mono
+    position = 0, 30
+    halign = center
+    valign = center
+}
+EOF2
+
+# -----------------------------
 # Hyprland dynamic colors
 # -----------------------------
 accent="${color2#\#}"

@@ -26,6 +26,9 @@ chosen=$(
 
 wallpaper="$WALLPAPER_DIR/$chosen"
 
+mkdir -p "$HOME/.cache/wal"
+ln -sf "$wallpaper" "$HOME/.cache/wal/current-wallpaper"
+
 if [ ! -f "$wallpaper" ]; then
     notify-send "Wallpaper" "Datei nicht gefunden" "$wallpaper"
     exit 1
