@@ -15,6 +15,37 @@ fi
 source "$WAL_CACHE/colors.sh"
 
 # -----------------------------
+# Hyprland dynamic colors
+# -----------------------------
+accent="${color2#\#}"
+accent2="${color6#\#}"
+dark="${color0#\#}"
+
+cat > "$WAL_CACHE/hyprland.conf" <<EOF2
+general {
+    col.active_border = rgba(${accent}ff)
+    col.inactive_border = rgba(${dark}aa)
+}
+EOF2
+
+hyprctl reload >/dev/null 2>&1 || true
+
+# -----------------------------
+# Firefox userChrome pywal colors
+# -----------------------------
+cat > "$WAL_CACHE/firefox.css" <<EOF2
+:root {
+  --forest-bg: ${background} !important;
+  --forest-bg-soft: ${background}dd !important;
+  --forest-panel: ${color0} !important;
+  --forest-green: ${color2} !important;
+  --forest-green-soft: ${color6} !important;
+  --forest-border: ${color2}aa !important;
+  --forest-text: ${foreground} !important;
+}
+EOF2
+
+# -----------------------------
 # Waybar GTK CSS
 # -----------------------------
 cat > "$WAL_CACHE/waybar.css" <<EOF2
