@@ -3,53 +3,61 @@ configuration {
 }
 
 * {
-    font: "JetBrainsMono Nerd Font 11";
-    background: rgba(16, 21, 18, 0.92);
-    background-alt: rgba(46, 74, 54, 0.48);
-    foreground: #d8e2d0;
-    selected: #5E8B4A;
-    border: rgba(94, 139, 74, 0.55);
+    font: "JetBrainsMono Nerd Font 10";
+
+    bg: rgba(10, 14, 12, 0.92);
+    bg-soft: rgba(18, 26, 21, 0.82);
+    bg-hover: rgba(46, 74, 54, 0.55);
+    green: #5E8B4A;
+    green-soft: #7AA16B;
+    text: #d8e2d0;
+    muted: rgba(216, 226, 208, 0.55);
+    border: rgba(94, 139, 74, 0.48);
+
+    background-color: transparent;
+    text-color: @text;
 }
 
 window {
-    width: 820px;
-    height: 620px;
+    width: 980px;
+    height: 700px;
     border: 1px;
     border-color: @border;
-    border-radius: 24px;
-    background-color: @background;
+    border-radius: 28px;
+    background-color: @bg;
 }
 
 mainbox {
-    padding: 18px;
-    spacing: 14px;
+    padding: 22px;
+    spacing: 18px;
     background-color: transparent;
 }
 
 inputbar {
-    padding: 12px 16px;
-    border-radius: 16px;
-    background-color: @background-alt;
+    padding: 13px 18px;
+    border-radius: 18px;
+    background-color: @bg-soft;
     children: [ prompt, entry ];
 }
 
 prompt {
-    text-color: #7AA16B;
-    padding: 0 10px 0 0;
+    enabled: true;
+    text-color: @green-soft;
+    padding: 0 12px 0 0;
 }
 
 entry {
-    text-color: @foreground;
+    text-color: @text;
     placeholder: "Wallpaper suchen...";
-    placeholder-color: rgba(216, 226, 208, 0.55);
+    placeholder-color: @muted;
 }
 
 listview {
-    columns: 3;
-    lines: 3;
-    spacing: 12px;
+    columns: 4;
+    lines: 2;
+    spacing: 18px;
     fixed-height: true;
-    dynamic: true;
+    dynamic: false;
     scrollbar: false;
     background-color: transparent;
 }
@@ -58,20 +66,20 @@ element {
     orientation: vertical;
     padding: 10px;
     spacing: 8px;
-    border-radius: 18px;
-    background-color: rgba(16, 21, 18, 0.35);
+    border-radius: 22px;
+    background-color: rgba(16, 21, 18, 0.38);
 }
 
 element selected {
-    background-color: rgba(94, 139, 74, 0.38);
+    background-color: @bg-hover;
 }
 
 element-icon {
-    size: 150px;
-    border-radius: 14px;
+    size: 190px;
+    border-radius: 18px;
 }
 
 element-text {
     horizontal-align: 0.5;
-    text-color: @foreground;
+    text-color: @muted;
 }
