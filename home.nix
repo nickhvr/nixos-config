@@ -2,6 +2,8 @@
 
 {
   imports = [
+    ./home/hypr-scripts.nix
+    ./home/rofi.nix
     ./home/kitty.nix
     ./home/fastfetch.nix
     ./home/waybar.nix

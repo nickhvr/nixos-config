@@ -156,6 +156,7 @@ in
     hyprlock
     waybar
     wofi
+    rofi
     mako
 
     # Terminal / Browser / File Manager
