@@ -14,7 +14,7 @@
     ],
 
     "modules-right": [
-	"custom/wallpaper",
+        "custom/wallpaper",
         "pulseaudio",
         "backlight",
         "network",
@@ -27,6 +27,12 @@
         "format": "󱄅",
         "tooltip": false,
         "on-click": "wofi --show drun"
+    },
+
+    "custom/wallpaper": {
+        "format": "󰸉",
+        "tooltip": false,
+        "on-click": "/home/nick/.config/hypr/scripts/wallpaper-picker.sh"
     },
 
     "hyprland/workspaces": {
@@ -82,12 +88,6 @@
     "tray": {
         "icon-size": 16,
         "spacing": 8
-    },
-
-    "custom/wallpaper": {
-    "format": "󰸉",
-    "tooltip": false,
-    "on-click": "/home/nick/.config/hypr/scripts/wallpaper-picker.sh"
     },
 
     "custom/power": {

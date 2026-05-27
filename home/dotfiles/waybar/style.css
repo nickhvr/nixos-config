@@ -15,8 +15,8 @@ window#waybar {
 .modules-left,
 .modules-center,
 .modules-right {
-    background: rgba(16, 21, 18, 0.58);
-    border: 1px solid rgba(94, 139, 74, 0.34);
+    background: alpha(@wal_bg, 0.72);
+    border: 1px solid alpha(@wal_accent, 0.45);
     border-radius: 20px;
     margin: 8px 10px 0 10px;
     padding: 4px 9px;
@@ -35,23 +35,24 @@ window#waybar {
     color: @wal_fg;
 }
 
-#custom-wallpaper {
+#custom-launcher,
+#custom-wallpaper,
+#custom-power {
     color: @wal_accent2;
     font-size: 15px;
-    padding-left: 8px;
-    padding-right: 10px;
 }
 
 #custom-launcher {
-    color: @wal_accent2;
-    font-size: 16px;
     padding-left: 6px;
     padding-right: 12px;
 }
 
+#custom-wallpaper {
+    padding-left: 8px;
+    padding-right: 10px;
+}
+
 #custom-power {
-    color: @wal_accent2;
-    font-size: 15px;
     padding-left: 10px;
     padding-right: 5px;
 }
@@ -62,7 +63,7 @@ window#waybar {
 
 #workspaces button {
     background: transparent;
-    color: #6f8f62;
+    color: alpha(@wal_fg, 0.55);
     padding: 2px 8px;
     margin: 0 1px;
     border-radius: 13px;
@@ -70,13 +71,13 @@ window#waybar {
 }
 
 #workspaces button.active {
-    background: rgba(94, 139, 74, 0.34);
-    color: #edf5e8;
+    background: alpha(@wal_accent, 0.36);
+    color: @wal_fg;
 }
 
 #workspaces button:hover {
-    background: rgba(122, 161, 107, 0.20);
-    color: #ffffff;
+    background: alpha(@wal_accent2, 0.25);
+    color: @wal_fg;
 }
 
 #battery.charging,
@@ -85,16 +86,16 @@ window#waybar {
 }
 
 #battery.warning {
-    color: #d6b36a;
+    color: @wal_warning;
 }
 
 #battery.critical {
-    color: #c46a6a;
+    color: @wal_critical;
 }
 
 tooltip {
-    background: rgba(16, 21, 18, 0.96);
-    border: 1px solid rgba(94, 139, 74, 0.45);
+    background: alpha(@wal_bg, 0.96);
+    border: 1px solid alpha(@wal_accent, 0.55);
     border-radius: 14px;
 }
 
