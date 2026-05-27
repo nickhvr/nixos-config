@@ -19,15 +19,14 @@ source "$WAL_CACHE/colors.sh"
 # -----------------------------
 cat > "$WAL_CACHE/rofi-wallpaper.rasi" <<EOF2
 * {
-    wal_bg: ${background};
-    wal_fg: ${foreground};
-    wal_card: ${color0};
-    wal_accent: ${color2};
-    wal_accent2: ${color6};
-    wal_muted: ${color7};
+    background: ${background};
+    foreground: ${foreground};
+    card: ${color0};
+    accent: ${color2};
+    accent2: ${color6};
+    muted: ${color7};
 }
 EOF2
-
 
 # -----------------------------
 # Hyprlock dynamic config
