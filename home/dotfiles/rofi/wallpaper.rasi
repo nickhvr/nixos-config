@@ -7,81 +7,99 @@ configuration {
 * {
     font: "JetBrainsMono Nerd Font 10";
 
-    bg: rgba(10, 14, 12, 0.92);
-    bg-soft: rgba(18, 26, 21, 0.82);
-    bg-hover: rgba(46, 74, 54, 0.55);
-    green: #5E8B4A;
-    green-soft: #7AA16B;
-    text: #d8e2d0;
-    muted: rgba(216, 226, 208, 0.55);
-    border: rgba(94, 139, 74, 0.48);
+    transparent: #00000000;
 
-    background-color: transparent;
-    text-color: @text;
+    bg: @background;
+    fg: @foreground;
+    card: @color0;
+    accent: @color2;
+    accent2: @color6;
+    muted: @color7;
+
+    background-color: @transparent;
+    text-color: @fg;
 }
 
 window {
     width: 980px;
     height: 700px;
+
     border: 1px;
-    border-color: @border;
+    border-color: @accent;
     border-radius: 28px;
+
     background-color: @bg;
 }
 
 mainbox {
     padding: 22px;
     spacing: 18px;
-    background-color: transparent;
+    background-color: @transparent;
 }
 
 inputbar {
     padding: 13px 18px;
+    border: 1px;
+    border-color: @accent;
     border-radius: 18px;
-    background-color: @bg-soft;
+
+    background-color: @card;
+
     children: [ prompt, entry ];
 }
 
 prompt {
-    enabled: true;
-    text-color: @green-soft;
+    text-color: @accent2;
     padding: 0 12px 0 0;
 }
 
 entry {
-    text-color: @text;
+    text-color: @fg;
     placeholder: "Wallpaper suchen...";
     placeholder-color: @muted;
 }
 
 listview {
-    columns: 4;
+    columns: 3;
     lines: 2;
+
     spacing: 18px;
+
     fixed-height: true;
     dynamic: false;
     scrollbar: false;
-    background-color: transparent;
+
+    background-color: @transparent;
 }
 
 element {
     orientation: vertical;
-    padding: 10px;
-    spacing: 8px;
+
+    padding: 12px;
+    spacing: 10px;
+
+    border: 2px;
+    border-color: @transparent;
     border-radius: 22px;
-    background-color: rgba(16, 21, 18, 0.38);
+
+    background-color: @card;
 }
 
 element selected {
-    background-color: @bg-hover;
+    border-color: @accent2;
+    background-color: @card;
 }
 
 element-icon {
-    size: 190px;
-    border-radius: 18px;
+    size: 210px;
+    border-radius: 16px;
 }
 
 element-text {
     horizontal-align: 0.5;
     text-color: @muted;
+}
+
+element selected element-text {
+    text-color: @fg;
 }
