@@ -201,7 +201,7 @@ in
       accent = "green";
       font = "Noto Sans";
       fontSize = "10";
-      background = "${./assets/forest.png}";
+      background = "${./assets/login-wallpaper.png}";
       loginBackground = true;
     })
   ];
