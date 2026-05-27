@@ -1,0 +1,91 @@
+{
+    "layer": "top",
+    "position": "top",
+    "height": 40,
+    "spacing": 0,
+
+    "modules-left": [
+        "custom/launcher",
+        "hyprland/workspaces"
+    ],
+
+    "modules-center": [
+        "clock"
+    ],
+
+    "modules-right": [
+        "pulseaudio",
+        "backlight",
+        "network",
+        "battery",
+        "tray",
+        "custom/power"
+    ],
+
+    "custom/launcher": {
+        "format": "󱄅",
+        "tooltip": false,
+        "on-click": "wofi --show drun"
+    },
+
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "format-icons": {
+            "1": "1",
+            "2": "2",
+            "3": "3",
+            "4": "4",
+            "5": "5",
+            "active": "●",
+            "default": "○"
+        },
+        "persistent-workspaces": {
+            "*": 5
+        }
+    },
+
+    "clock": {
+        "format": "󰥔  {:%H:%M}",
+        "tooltip-format": "{:%A, %d. %B %Y}"
+    },
+
+    "pulseaudio": {
+        "format": "  {volume}%",
+        "format-muted": "󰝟",
+        "tooltip": false,
+        "on-click": "pavucontrol"
+    },
+
+    "backlight": {
+        "format": "󰃠  {percent}%"
+    },
+
+    "network": {
+        "format-wifi": "",
+        "format-ethernet": "󰈀",
+        "format-disconnected": "󰖪",
+        "tooltip-format": "{ifname}: {ipaddr}"
+    },
+
+    "battery": {
+        "format": "{capacity}% {icon}",
+        "format-charging": "{capacity}% 󰂄",
+        "format-plugged": "{capacity}% 󰂄",
+        "states": {
+            "warning": 30,
+            "critical": 15
+        },
+        "format-icons": ["󰁺", "󰁼", "󰁾", "󰂀", "󰁹"]
+    },
+
+    "tray": {
+        "icon-size": 16,
+        "spacing": 8
+    },
+
+    "custom/power": {
+        "format": "",
+        "tooltip": false,
+        "on-click": "/home/nick/.config/hypr/scripts/powermenu.sh"
+    }
+}

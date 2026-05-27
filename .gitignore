@@ -1,0 +1,28 @@
+# Nix build outputs
+result
+result-*
+
+# Backups
+*.backup
+*.bak
+*.manual-backup
+*.backup-before-*
+configuration.nix.backup-*
+hyprland.conf.backup-*
+
+# Editor files
+*~
+*.swp
+*.swo
+.vscode/
+.idea/
+
+# Secrets
+secrets/
+*.secret
+*.age
+*.key
+*.pem
+
+# Logs
+*.log
