@@ -14,6 +14,7 @@
     ],
 
     "modules-right": [
+	"custum/wallpaper",
         "pulseaudio",
         "backlight",
         "network",
@@ -81,6 +82,12 @@
     "tray": {
         "icon-size": 16,
         "spacing": 8
+    },
+
+    "custom/wallpaper": {
+    "format": "󰸉",
+    "tooltip": false,
+    "on-click": "/home/nick/.config/hypr/scripts/wallpaper-picker.sh"
     },
 
     "custom/power": {

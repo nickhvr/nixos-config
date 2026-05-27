@@ -21,6 +21,7 @@ window#waybar {
 }
 
 #custom-launcher,
+#custom-wallpaper,
 #custom-power,
 #clock,
 #battery,
@@ -30,6 +31,13 @@ window#waybar {
 #tray {
     padding: 0 8px;
     color: #d8e2d0;
+}
+
+#custom-wallpaper {
+    color: #7AA16B;
+    font-size: 15px;
+    padding-left: 8px;
+    padding-right: 10px;
 }
 
 #custom-launcher {
