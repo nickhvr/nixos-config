@@ -10,4 +10,9 @@
     source = ./dotfiles/hypr/scripts/apply-wal-theme.sh;
     executable = true;
   };
+
+  home.file.".config/hypr/scripts/powermenu.sh" = {
+    source = ./dotfiles/hypr/scripts/powermenu.sh;
+    executable = true;
+  };
 }
