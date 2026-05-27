@@ -14,7 +14,7 @@
     ],
 
     "modules-right": [
-	"custum/wallpaper",
+	"custom/wallpaper",
         "pulseaudio",
         "backlight",
         "network",
