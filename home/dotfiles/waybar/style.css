@@ -1,3 +1,5 @@
+@import url("file:///home/nick/.cache/wal/waybar.css");
+
 * {
     font-family: "JetBrainsMono Nerd Font", "JetBrains Mono", "Font Awesome 6 Free", "Noto Sans", sans-serif;
     font-size: 13px;
@@ -7,7 +9,7 @@
 
 window#waybar {
     background: transparent;
-    color: #d8e2d0;
+    color: var(--wal-fg);
 }
 
 .modules-left,
@@ -30,25 +32,25 @@ window#waybar {
 #backlight,
 #tray {
     padding: 0 8px;
-    color: #d8e2d0;
+    color: var(--wal-fg);
 }
 
 #custom-wallpaper {
-    color: #7AA16B;
+    color: var(--wal-accent2);
     font-size: 15px;
     padding-left: 8px;
     padding-right: 10px;
 }
 
 #custom-launcher {
-    color: #7AA16B;
+    color: var(--wal-accent2);
     font-size: 16px;
     padding-left: 6px;
     padding-right: 12px;
 }
 
 #custom-power {
-    color: #7AA16B;
+    color: var(--wal-accent2);
     font-size: 15px;
     padding-left: 10px;
     padding-right: 5px;
@@ -79,7 +81,7 @@ window#waybar {
 
 #battery.charging,
 #battery.plugged {
-    color: #7AA16B;
+    color: var(--wal-accent2);
 }
 
 #battery.warning {
@@ -97,5 +99,5 @@ tooltip {
 }
 
 tooltip label {
-    color: #d8e2d0;
+    color: var(--wal-fg);
 }

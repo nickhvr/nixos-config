@@ -1,3 +1,5 @@
+@import "/home/nick/.cache/wal/colors-rofi-dark.rasi"
+
 configuration {
     show-icons: true;
 }
