@@ -1,3 +1,5 @@
+@import url("file:///home/nick/.cache/wal/wofi.css");
+
 * {
     font-family: "JetBrainsMono Nerd Font", "JetBrains Mono", "Font Awesome 6 Free", "Noto Sans", sans-serif;
     font-size: 16px;
@@ -5,9 +7,9 @@
 
 window {
     margin: 0px;
-    border: 1px solid rgba(94, 139, 74, 0.55);
+    border: 1px solid alpha(@wal_accent, 0.60);
     border-radius: 24px;
-    background-color: rgba(16, 21, 18, 0.88);
+    background-color: alpha(@wal_bg, 0.90);
 }
 
 #outer-box {
@@ -18,16 +20,17 @@ window {
 #input {
     margin: 0 0 14px 0;
     padding: 12px 16px;
-    border: 1px solid rgba(122, 161, 107, 0.35);
+    border: 1px solid alpha(@wal_accent2, 0.45);
     border-radius: 16px;
-    color: #e6eedf;
-    background-color: rgba(46, 74, 54, 0.45);
+    color: @wal_fg;
+    background-color: alpha(@wal_dark, 0.55);
 }
 
-#inner-box {
-    background-color: transparent;
+#input:focus {
+    border: 1px solid alpha(@wal_accent2, 0.85);
 }
 
+#inner-box,
 #scroll {
     background-color: transparent;
 }
@@ -35,14 +38,21 @@ window {
 #entry {
     padding: 14px 18px;
     margin: 6px 0;
+    border: 2px solid transparent;
     border-radius: 16px;
-    background-color: rgba(16, 21, 18, 0.35);
-    color: #d8e2d0;
+    background-color: transparent;
+    color: @wal_fg;
+}
+
+#entry:hover {
+    border-color: alpha(@wal_accent, 0.55);
+    background-color: transparent;
 }
 
 #entry:selected {
-    background-color: rgba(94, 139, 74, 0.36);
-    color: #ffffff;
+    border-color: @wal_accent2;
+    background-color: transparent;
+    color: @wal_fg;
 }
 
 #text {
