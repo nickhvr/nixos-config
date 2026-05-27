@@ -32,11 +32,19 @@ fi
 
 mkdir -p "$HOME/.config/hypr"
 
-# Set wallpaper persistently
-cat > "$HYPRPAPER_CONF" <<EOF2
-preload = $wallpaper
-wallpaper = ,$wallpaper
-EOF2
+monitors=$(hyprctl monitors | awk '/^Monitor / {print $2}')
+
+{
+    echo "preload = $wallpaper"
+
+    if [ -n "$monitors" ]; then
+        for monitor in $monitors; do
+            echo "wallpaper = $monitor,$wallpaper"
+        done
+    else
+        echo "wallpaper = ,$wallpaper"
+    fi
+} > "$HYPRPAPER_CONF"
 
 # Generate pywal colors
 wal -i "$wallpaper" -n -q
@@ -56,17 +64,25 @@ cat > "$HOME/.cache/wal/waybar.css" <<EOF2
 }
 EOF2
 
-# Apply wallpaper live
-pgrep -x hyprpaper >/dev/null || hyprpaper &
-
+# Restart hyprpaper cleanly
+pkill hyprpaper >/dev/null 2>&1 || true
 sleep 0.2
+hyprpaper >/dev/null 2>&1 &
+sleep 0.5
 
+# Apply wallpaper live to all monitors
 hyprctl hyprpaper unload all >/dev/null 2>&1 || true
 hyprctl hyprpaper preload "$wallpaper" >/dev/null 2>&1 || true
-hyprctl hyprpaper wallpaper ",$wallpaper" >/dev/null 2>&1 || true
 
-# Reload apps
-pkill -SIGUSR1 kitty >/dev/null 2>&1 || true
+if [ -n "$monitors" ]; then
+    for monitor in $monitors; do
+        hyprctl hyprpaper wallpaper "$monitor,$wallpaper" >/dev/null 2>&1 || true
+    done
+else
+    hyprctl hyprpaper wallpaper ",$wallpaper" >/dev/null 2>&1 || true
+fi
+
+# Reload visual components
 pkill waybar >/dev/null 2>&1 || true
 waybar >/dev/null 2>&1 &
 
