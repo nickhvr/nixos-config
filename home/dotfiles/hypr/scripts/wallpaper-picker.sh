@@ -3,7 +3,6 @@
 WALLPAPER_DIR="$HOME/wallpapers"
 HYPRPAPER_CONF="$HOME/.config/hypr/hyprpaper.conf"
 ROFI_THEME="$HOME/.config/rofi/wallpaper.rasi"
-WAYBAR_LOG="$HOME/.cache/waybar.log"
 
 if [ ! -d "$WALLPAPER_DIR" ]; then
     notify-send "Wallpaper" "Ordner nicht gefunden: $WALLPAPER_DIR"
@@ -26,9 +25,6 @@ chosen=$(
 
 wallpaper="$WALLPAPER_DIR/$chosen"
 
-mkdir -p "$HOME/.cache/wal"
-ln -sf "$wallpaper" "$HOME/.cache/wal/current-wallpaper"
-
 if [ ! -f "$wallpaper" ]; then
     notify-send "Wallpaper" "Datei nicht gefunden" "$wallpaper"
     exit 1
@@ -37,9 +33,10 @@ fi
 mkdir -p "$HOME/.config/hypr"
 mkdir -p "$HOME/.cache/wal"
 
+ln -sf "$wallpaper" "$HOME/.cache/wal/current-wallpaper"
+
 monitors=$(hyprctl monitors | awk '/^Monitor / {print $2}')
 
-# Persistent hyprpaper config
 {
     echo "ipc = on"
     echo "splash = false"
@@ -54,27 +51,11 @@ monitors=$(hyprctl monitors | awk '/^Monitor / {print $2}')
     fi
 } > "$HYPRPAPER_CONF"
 
-# Generate pywal colors
-wal -i "$wallpaper" -n -q
-
-# Apply generated pywal colors to desktop components
-"$HOME/.config/hypr/scripts/apply-wal-theme.sh"
-
-# Restart hyprpaper
 pkill hyprpaper >/dev/null 2>&1 || true
 sleep 0.3
 hyprpaper >/tmp/hyprpaper-wallpaper-picker.log 2>&1 &
+sleep 0.7
 
-# Wait until hyprpaper IPC is ready
-for i in {1..20}; do
-    if hyprctl hyprpaper listloaded >/dev/null 2>&1; then
-        break
-    fi
-    sleep 0.1
-done
-
-# Apply wallpaper live
-hyprctl hyprpaper unload all >/dev/null 2>&1 || true
 hyprctl hyprpaper preload "$wallpaper" >/dev/null 2>&1 || true
 
 if [ -n "$monitors" ]; then
@@ -83,6 +64,14 @@ if [ -n "$monitors" ]; then
     done
 else
     hyprctl hyprpaper wallpaper ",$wallpaper" >/dev/null 2>&1 || true
+fi
+
+if command -v wal >/dev/null 2>&1; then
+    wal -i "$wallpaper" -n -q || true
+
+    if [ -x "$HOME/.config/hypr/scripts/apply-wal-theme.sh" ]; then
+        "$HOME/.config/hypr/scripts/apply-wal-theme.sh" || true
+    fi
 fi
 
 notify-send "Wallpaper gesetzt" "$chosen"
