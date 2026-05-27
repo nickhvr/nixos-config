@@ -187,6 +187,7 @@ in
     wget
     curl
     fastfetch
+    pywal
     neovim
     unzip
     python313
