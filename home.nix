@@ -28,6 +28,10 @@
   programs.bash = {
     enable = true;
 
+	  initExtra = ''
+    export PATH="$HOME/.local/bin:$PATH"
+  '';
+
     bashrcExtra = ''
       # Show fastfetch on interactive Kitty startup
       if [[ $- == *i* ]] && [[ "$TERM" == "xterm-kitty" ]] && command -v fastfetch >/dev/null 2>&1; then

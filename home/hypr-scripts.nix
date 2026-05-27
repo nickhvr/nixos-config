@@ -15,4 +15,9 @@
     source = ./dotfiles/hypr/scripts/powermenu.sh;
     executable = true;
   };
+
+  home.file.".config/hypr/scripts/screenshot-area.sh" = {
+    source = ./dotfiles/hypr/scripts/screenshot-area.sh;
+    executable = true;
+  };
 }
