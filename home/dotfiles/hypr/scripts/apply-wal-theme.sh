@@ -15,6 +15,21 @@ fi
 source "$WAL_CACHE/colors.sh"
 
 # -----------------------------
+# Rofi wallpaper picker colors
+# -----------------------------
+cat > "$WAL_CACHE/rofi-wallpaper.rasi" <<EOF2
+* {
+    wal_bg: ${background};
+    wal_fg: ${foreground};
+    wal_card: ${color0};
+    wal_accent: ${color2};
+    wal_accent2: ${color6};
+    wal_muted: ${color7};
+}
+EOF2
+
+
+# -----------------------------
 # Hyprlock dynamic config
 # -----------------------------
 CURRENT_WALLPAPER="$WAL_CACHE/current-wallpaper"

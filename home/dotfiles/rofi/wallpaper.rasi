@@ -1,4 +1,4 @@
-@import "/home/nick/.cache/wal/colors-rofi-dark.rasi"
+@import "/home/nick/.cache/wal/rofi-wallpaper.rasi"
 
 configuration {
     show-icons: true;
@@ -7,7 +7,7 @@ configuration {
 * {
     font: "JetBrainsMono Nerd Font 10";
     background-color: transparent;
-    text-color: @foreground;
+    text-color: @wal_fg;
 }
 
 window {
@@ -15,10 +15,10 @@ window {
     height: 700px;
 
     border: 1px;
-    border-color: @color2;
+    border-color: @wal_accent;
     border-radius: 28px;
 
-    background-color: @background;
+    background-color: @wal_bg;
 }
 
 mainbox {
@@ -31,23 +31,23 @@ inputbar {
     padding: 13px 18px;
 
     border: 1px;
-    border-color: @color2;
+    border-color: @wal_accent;
     border-radius: 18px;
 
-    background-color: @color0;
+    background-color: @wal_card;
 
     children: [ prompt, entry ];
 }
 
 prompt {
-    text-color: @color6;
+    text-color: @wal_accent2;
     padding: 0 12px 0 0;
 }
 
 entry {
-    text-color: @foreground;
+    text-color: @wal_fg;
     placeholder: "Wallpaper suchen...";
-    placeholder-color: @color7;
+    placeholder-color: @wal_muted;
 }
 
 listview {
@@ -77,7 +77,7 @@ element {
 }
 
 element selected {
-    border-color: @color6;
+    border-color: @wal_accent2;
     background-color: transparent;
 }
 
@@ -88,9 +88,9 @@ element-icon {
 
 element-text {
     horizontal-align: 0.5;
-    text-color: @color7;
+    text-color: @wal_muted;
 }
 
 element selected element-text {
-    text-color: @foreground;
+    text-color: @wal_fg;
 }
