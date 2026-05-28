@@ -6,6 +6,11 @@
     executable = true;
   };
 
+  home.file.".config/hypr/scripts/quickapps.sh" = {
+    source = ./dotfiles/hypr/scripts/quickapps.sh;
+    executable = true;
+  };
+
   home.file.".config/hypr/scripts/wallpaper-picker-waybar.sh" = {
     source = ./dotfiles/hypr/scripts/wallpaper-picker-waybar.sh;
     executable = true;
