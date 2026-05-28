@@ -6,8 +6,18 @@
     executable = true;
   };
 
+  home.file.".config/hypr/scripts/wallpaper-picker-waybar.sh" = {
+    source = ./dotfiles/hypr/scripts/wallpaper-picker-waybar.sh;
+    executable = true;
+  };
+
   home.file.".config/hypr/scripts/apply-wal-theme.sh" = {
     source = ./dotfiles/hypr/scripts/apply-wal-theme.sh;
+    executable = true;
+  };
+
+  home.file.".config/hypr/scripts/restore-wallpaper-theme.sh" = {
+    source = ./dotfiles/hypr/scripts/restore-wallpaper-theme.sh;
     executable = true;
   };
 

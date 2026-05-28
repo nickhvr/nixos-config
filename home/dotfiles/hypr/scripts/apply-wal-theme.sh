@@ -31,9 +31,9 @@ EOF2
 # -----------------------------
 # Hyprlock dynamic config
 # -----------------------------
-CURRENT_WALLPAPER="$WAL_CACHE/current-wallpaper"
+CURRENT_WALLPAPER="$(cat "$WAL_CACHE/current-wallpaper" 2>/dev/null || true)"
 
-if [ ! -e "$CURRENT_WALLPAPER" ]; then
+if [ -z "$CURRENT_WALLPAPER" ] || [ ! -f "$CURRENT_WALLPAPER" ]; then
     CURRENT_WALLPAPER="$HOME/wallpapers/wallpaper.png"
 fi
 

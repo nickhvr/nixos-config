@@ -32,7 +32,7 @@
     "custom/wallpaper": {
         "format": "󰸉",
         "tooltip": false,
-        "on-click": "/home/nick/.config/hypr/scripts/wallpaper-picker.sh"
+        "on-click": "/home/nick/.config/hypr/scripts/wallpaper-picker-waybar.sh"
     },
 
     "hyprland/workspaces": {

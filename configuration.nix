@@ -195,6 +195,8 @@ in
     nix-search-script
     libnotify
 
+    file
+
     # SDDM Theme
     (catppuccin-sddm.override {
       flavor = "mocha";
