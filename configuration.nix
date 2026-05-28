@@ -199,6 +199,7 @@ in
 
     #Programs
     vscode
+    teams-for-linux
 
     # SDDM Theme
     (catppuccin-sddm.override {
