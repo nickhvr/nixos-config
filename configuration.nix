@@ -198,10 +198,10 @@ in
     # SDDM Theme
     (catppuccin-sddm.override {
       flavor = "mocha";
-      accent = "green";
+      accent = "mauve";
       font = "Noto Sans";
       fontSize = "10";
-      background = "${./assets/forest.png}";
+      background = "${./assets/space-pixel.png}";
       loginBackground = true;
     })
   ];
