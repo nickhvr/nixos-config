@@ -195,6 +195,7 @@ in
     nix-search-script
     libnotify
     file
+    lazygit
 
     #Programs
     vscode
