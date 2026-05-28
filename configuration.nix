@@ -194,8 +194,10 @@ in
     codex
     nix-search-script
     libnotify
-
     file
+
+    #Programs
+    vscode
 
     # SDDM Theme
     (catppuccin-sddm.override {

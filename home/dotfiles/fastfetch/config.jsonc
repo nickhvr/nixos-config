@@ -9,6 +9,10 @@
   },
 
   "modules": [
+        {
+            "type": "colors",
+            "symbol": "circle"
+        },
     {
       "type": "title",
       "format": "{user-name}"
