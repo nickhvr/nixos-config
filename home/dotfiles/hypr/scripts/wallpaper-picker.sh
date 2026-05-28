@@ -33,7 +33,7 @@ fi
 mkdir -p "$HOME/.config/hypr"
 mkdir -p "$HOME/.cache/wal"
 
-ln -sf "$wallpaper" "$HOME/.cache/wal/current-wallpaper"
+printf '%s\n' "$wallpaper" > "$HOME/.cache/wal/current-wallpaper"
 
 monitors=$(hyprctl monitors | awk '/^Monitor / {print $2}')
 
@@ -51,20 +51,22 @@ monitors=$(hyprctl monitors | awk '/^Monitor / {print $2}')
     fi
 } > "$HYPRPAPER_CONF"
 
-pkill hyprpaper >/dev/null 2>&1 || true
-sleep 0.3
-hyprpaper >/tmp/hyprpaper-wallpaper-picker.log 2>&1 &
-sleep 0.7
+pkill -x hyprpaper >/dev/null 2>&1 || true
 
-hyprctl hyprpaper preload "$wallpaper" >/dev/null 2>&1 || true
+for i in {1..20}; do
+    if ! pgrep -x hyprpaper >/dev/null 2>&1; then
+        break
+    fi
+    sleep 0.1
+done
 
-if [ -n "$monitors" ]; then
-    for monitor in $monitors; do
-        hyprctl hyprpaper wallpaper "$monitor,$wallpaper" >/dev/null 2>&1 || true
-    done
-else
-    hyprctl hyprpaper wallpaper ",$wallpaper" >/dev/null 2>&1 || true
+if pgrep -x hyprpaper >/dev/null 2>&1; then
+    pkill -9 -x hyprpaper >/dev/null 2>&1 || true
+    sleep 0.2
 fi
+
+hyprpaper >/tmp/hyprpaper-wallpaper-picker.log 2>&1 &
+sleep 1
 
 if command -v wal >/dev/null 2>&1; then
     wal -i "$wallpaper" -n -q || true

@@ -112,7 +112,7 @@ in
     enable = true;
     wayland.enable = false;
     package = pkgs.kdePackages.sddm;
-    theme = "catppuccin-mocha-green";
+    theme = "catppuccin-mocha-mauve";
 
     extraPackages = with pkgs; [
       qt6.qt5compat
