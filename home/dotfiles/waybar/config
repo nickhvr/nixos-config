@@ -44,8 +44,12 @@
             "default": "○"
         },
         "persistent-workspaces": {
-            "*": [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-        }
+            "eDP-1": [1, 2, 3, 4, 5],
+            "HDMI-A-1": [6, 7, 8, 9, 10]
+        },
+        "persistent-only": true,
+        "all-outputs": false,
+        "sort-by": "number"
     },
 
     "clock": {

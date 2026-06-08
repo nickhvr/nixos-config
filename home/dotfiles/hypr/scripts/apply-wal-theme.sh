@@ -4,6 +4,8 @@ set -e
 
 WAL_CACHE="$HOME/.cache/wal"
 WAYBAR_LOG="$HOME/.cache/waybar.log"
+WAYBAR_CONFIG="${WAYBAR_CONFIG:-/etc/nixos/home/dotfiles/waybar/config}"
+WAYBAR_STYLE="${WAYBAR_STYLE:-/etc/nixos/home/dotfiles/waybar/style.css}"
 
 mkdir -p "$WAL_CACHE"
 mkdir -p "$HOME/.config/mako"
@@ -283,7 +285,7 @@ pkill mako >/dev/null 2>&1 || true
 mako -c "$WAL_CACHE/mako.conf" >/dev/null 2>&1 &
 
 pkill waybar >/dev/null 2>&1 || true
-waybar > "$WAYBAR_LOG" 2>&1 &
+waybar -c "$WAYBAR_CONFIG" -s "$WAYBAR_STYLE" > "$WAYBAR_LOG" 2>&1 &
 
 # Existing Kitty windows do not always live-reload colors.
 # New Kitty windows will use the generated colors.
