@@ -27,6 +27,16 @@
     executable = true;
   };
 
+  home.file.".config/hypr/scripts/restart-waybar.sh" = {
+    source = ./dotfiles/hypr/scripts/restart-waybar.sh;
+    executable = true;
+  };
+
+  home.file.".config/hypr/scripts/workspace-alt-tab.sh" = {
+    source = ./dotfiles/hypr/scripts/workspace-alt-tab.sh;
+    executable = true;
+  };
+
   home.file.".config/hypr/scripts/restore-wallpaper-theme.sh" = {
     source = ./dotfiles/hypr/scripts/restore-wallpaper-theme.sh;
     executable = true;
